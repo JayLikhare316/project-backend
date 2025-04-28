@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('code-pull'){
             steps {
-                git branch: 'dev', url: 'https://github.com/mayurmwagh/project-backend.git'
+                git branch: 'main', url: 'https://github.com/JayLikhare316/project-backend.git'
             }
         }
         stage('code-Build'){
@@ -14,9 +14,9 @@ pipeline {
          stage('Deploy-K8s'){
             steps {
                sh '''
-                    docker build . -t mayurwagh/project-backend-img:latest
-                    docker push mayurwagh/project-backend-img:latest
-                    docker rmi mayurwagh/project-backend-img:latest
+                    docker build . -t jaylikhare/project-backend-img:latest
+                    docker push jaylikhare/project-backend-img:latest
+                    docker rmi jaylikhare/project-backend-img:latest
                     kubectl apply -f ./deploy/
 
                '''
