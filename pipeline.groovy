@@ -17,8 +17,8 @@ pipeline {
                     docker build . -t jaylikhare/project-backend-img:latest
                     docker push jaylikhare/project-backend-img:latest
                     docker rmi jaylikhare/project-backend-img:latest
-                    kubectl apply -f ./deploy/
-
+                    /var/lib/jenkins/bin/kubectl version --client
+                    /var/lib/jenkins/bin/kubectl apply -f ./deploy/
                '''
             }
         }
